@@ -1,4 +1,5 @@
 export * from './validateAvatarURL.jsx';
+
 export * from './validateDescription.jsx';
 export * from './validateEmail.jsx';
 export * from './validatePassword.jsx';

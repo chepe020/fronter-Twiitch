@@ -6,6 +6,7 @@ export const Input = ({
     type,
     showErrorMessage,
     onBlurHandler,
+    validationMessage,
     textArea
 }) => {
 
@@ -24,11 +25,11 @@ export const Input = ({
         </div>
         <div>
             {textArea ? (
-                <textArea
+                <textarea
                     type={type}
                     value={value}
                     onChange={handleValueChange}
-                    onBluer={handleInputBlur}
+                    onBlur={handleInputBlur}
                     rows={5}
                     style={{maxWidth: '400px'}}
                 />
