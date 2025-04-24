@@ -101,5 +101,5 @@ export const Login = ({ switchAuthHandler}) => {
     )
 }
 
-//esantos@gmail.com
-//123456
+//jose@gmail.com
+//123456789

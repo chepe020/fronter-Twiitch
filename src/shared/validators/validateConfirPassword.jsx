@@ -1,5 +1,5 @@
-export const validateConfirmPassword = (pass, confPass) => {
-    return pass === confiPass
+export const validateConfirPassword = (pass, confPass) => {
+    return pass === confPass
 }
 
 export const passwordConfimationMessage = 'Las contraseñas no coinciden'
