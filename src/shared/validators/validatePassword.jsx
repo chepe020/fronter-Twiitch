@@ -4,4 +4,3 @@ export const validatePassword = (password) => {
 }
 
 export const validatePasswordMessage = 'La contraseña debe tener entre 6 y 12 caracteres sin espacios.'
-

@@ -1,10 +1,11 @@
-import { useRoutes  } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import routers from "./routes.jsx";
+import routes from "./routes.jsx"
+
 
 export const App = () => {
-  let element = useRoutes(routers);
 
+  let element = useRoutes(routes);
 
   return (
     <>
@@ -16,4 +17,3 @@ export const App = () => {
     </>
   )
 }
-

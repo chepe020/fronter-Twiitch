@@ -1,3 +1,4 @@
+
 export const Input = ({
     field,
     label,
@@ -5,12 +6,12 @@ export const Input = ({
     onChangeHandler,
     type,
     showErrorMessage,
-    onBlurHandler,
     validationMessage,
+    onBlurHandler,
     textArea
 }) => {
 
-    const handleValueChange = (event) => {
+    const handleValueChange = (event) =>{
         onChangeHandler(event.target.value, field);
     }
 
@@ -34,7 +35,7 @@ export const Input = ({
                     style={{maxWidth: '400px'}}
                 />
             ) : (
-                <input
+                <input 
                     type={type}
                     value={value}
                     onChange={handleValueChange}
@@ -45,8 +46,6 @@ export const Input = ({
                 {showErrorMessage && validationMessage}
             </span>
         </div>
-
     </>
   )
 }
-

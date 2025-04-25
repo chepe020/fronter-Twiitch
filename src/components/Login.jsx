@@ -1,25 +1,25 @@
 import { useState } from "react";
 import { Logo } from "./Logo";
 import { Input } from "./Input";
-import{
+import {
     emailValidationMessage,
     validateEmail,
     validatePasswordMessage,
     validatePassword
 } from "../shared/validators";
+import { useLogin } from "../shared/hooks"
 
-import {useLogin} from "../shared/hooks"
-
-export const Login = ({ switchAuthHandler}) => {
-    const { login, isLoading} = useLogin()
+export const Login = ({ switchAuthHandler }) => {
+    
+    const { login, isLoading } = useLogin()
 
     const [formState, setFormState] = useState({
-        email:{
+        email: {
             value: '',
             isValid: false,
-            showError: false,
+            showError: false
         },
-        password:{
+        password: {
             value: '',
             isValid: false,
             showError: false
@@ -29,7 +29,7 @@ export const Login = ({ switchAuthHandler}) => {
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
             ...prevState,
-            [field] : {
+            [field]: {
                 ...prevState[field],
                 value
             }
@@ -38,20 +38,19 @@ export const Login = ({ switchAuthHandler}) => {
 
     const handleInputValidationOnBlur = (value, field) => {
         let isValid = false;
-        switch(field){
+        switch(field) {
             case 'email':
-                    isValid = validateEmail(value);
+                isValid = validateEmail(value);
                 break;
             case 'password':
-                    isValid = validatePassword(value);
+                isValid = validatePassword(value);
                 break;
             default:
                 break;
         }
-
-        setFormState((prevState) => ({
+        setFormState((prevState) =>({
             ...prevState,
-            [field]:{
+            [field]: {
                 ...prevState[field],
                 isValid,
                 showError: !isValid
@@ -61,21 +60,21 @@ export const Login = ({ switchAuthHandler}) => {
 
     const handleLogin = (event) => {
         event.preventDefault()
-
         login(formState.email.value, formState.password.value)
     }
+
     const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid;
 
-    return(
+    return (
         <div className="login-container">
-            <Logo text={'Login kinal cast'}/>
+            <Logo text={'Login Kinal Cast'}/>
             <form className="auth-form">
                 <Input
                     field='email'
                     label='Email'
                     value={formState.email.value}
                     onChangeHandler={handleInputValueChange}
-                    type="text"
+                    type='text'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.email.showError}
                     validationMessage={emailValidationMessage}
@@ -85,21 +84,18 @@ export const Login = ({ switchAuthHandler}) => {
                     label='Password'
                     value={formState.password.value}
                     onChangeHandler={handleInputValueChange}
-                    type="password"
+                    type='password'
                     onBlurHandler={handleInputValidationOnBlur}
                     showErrorMessage={formState.password.showError}
                     validationMessage={validatePasswordMessage}
                 />
                 <button onClick={handleLogin} disabled={isSubmitButtonDisabled}>
-                    Login
+                    Log in
                 </button>
             </form>
-                <span onClick={switchAuthHandler} className="auth-form-switch-label">
-                    Don't have an account sig up
-                </span>
+            <span onClick={switchAuthHandler} className="auth-form-switch-label">
+                Don't have an account? Sign up
+            </span>
         </div>
     )
 }
-
-//jose@gmail.com
-//123456789
